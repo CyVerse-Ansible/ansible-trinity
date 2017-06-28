@@ -1,0 +1,7 @@
+---
+
+- name: Playbook to install trinity tool
+  hosts: localhost
+  remote_user: root
+  roles:
+    - ansible-trinity

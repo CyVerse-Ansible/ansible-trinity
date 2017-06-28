@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  author: Calvin Mclean
+  description: Installs Bowtie2 analysis tool.
+  company: CyVerse
+  license: BSD
+  min_ansible_version: 2.2
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  - name: Ubuntu
+    versions:
+    - trusty
+    - xenial
+  galaxy_tags:
+    - installer
+    - genome
+    - bioscience
+
+dependencies:
+  - { role: CyVerse-Ansible.bowtie2, name: ansible-bowtie2}

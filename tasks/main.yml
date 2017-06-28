@@ -1,0 +1,28 @@
+---
+
+- name: Download zip
+  get_url:
+    url: "https://github.com/trinityrnaseq/trinityrnaseq/archive/Trinity-v{{ VERSION }}.tar.gz"
+    dest: "/tmp/Trinity.tar.gz"
+
+- name: Unzip the package
+  unarchive:
+    src: "/tmp/Trinity.tar.gz"
+    dest: "/opt"
+    remote_src: yes
+
+- name: Build executables from source
+  make:
+    chdir: "/opt/Trinity-v{{ VERSION }}"
+
+- name: Build plugins from source
+  make:
+    chdir: "/opt/Trinity-v{{ VERSION }}"
+    target: "plugins"
+
+- name: Remove temporary files
+  file:
+    state: absent
+    path: "{{ item }}"
+  with_items:
+    - "/tmp/Trinity.tar.gz"
