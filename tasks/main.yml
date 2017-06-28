@@ -27,6 +27,15 @@
         - "openjdk-8-jdk"
   when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version < "15"
 
+- name: Install Java 8 on CentOS
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.rpm"
+    - "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jre-8u45-linux-x64.rpm"
+  when: ansible_distribution == "CentOS"
+
 - name: Download zip
   get_url:
     url: "https://github.com/trinityrnaseq/trinityrnaseq/archive/Trinity-v{{ VERSION }}.tar.gz"
