@@ -7,6 +7,7 @@
   with_items:
     - "default-jdk"
     - "default-jre"
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version > "14"
 
 - block:
     - name: Add Open Java 8 PPA
@@ -24,7 +25,6 @@
       with_items:
         - "openjdk-8-jre"
         - "openjdk-8-jdk"
-
   when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version < "15"
 
 - name: Download zip
