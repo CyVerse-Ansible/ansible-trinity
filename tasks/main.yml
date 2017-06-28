@@ -13,11 +13,11 @@
 
 - name: Build executables from source
   make:
-    chdir: "/opt/Trinity-v{{ VERSION }}"
+    chdir: "/opt/trinityrnaseq-Trinity-v{{ VERSION }}"
 
 - name: Build plugins from source
   make:
-    chdir: "/opt/Trinity-v{{ VERSION }}"
+    chdir: "/opt/trinityrnaseq-Trinity-v{{ VERSION }}"
     target: "plugins"
 
 - name: Remove temporary files
