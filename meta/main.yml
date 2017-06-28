@@ -20,4 +20,4 @@ galaxy_info:
     - bioscience
 
 dependencies:
-  - { role: CyVerse-Ansible.bowtie2, name: ansible-bowtie2}
+  - CyVerse-Ansible.bowtie2
